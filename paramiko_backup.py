@@ -1,0 +1,67 @@
+from datetime import datetime
+import paramiko
+import getpass
+import time
+import csv
+
+
+user = input("Username: ") or "cisco"
+passw = getpass.getpass() or "cisco"
+
+ssh_client = paramiko.SSHClient()
+ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+list_router = open("data_router.csv", "r")
+data_router_dict = csv.DictReader(list_router, delimiter=";")
+file_log = open("paramiko_log.txt", "a")
+
+
+for router in data_router_dict:
+    try:
+        ssh_client.connect(
+            hostname=router["ip"],
+            username=router["username"], 
+            password=router["password"],
+            port=router["port"] if router["port"] else 22
+        )
+        print("-------------------------------------------")
+        print(f"Success  login {router['ip']}")
+        conn= ssh_client.invoke_shell()
+
+        if router["enable"]:
+            conn.send("enable\n")
+            conn.send(f"{router['enable']}\n")
+            time.sleep(1)
+
+        conn.send("terminal length 0\n")
+        conn.send("show run\n")
+        time.sleep(5)
+
+        output = conn.recv(65635).decode()
+        file_output =open(f"backup_config/{router['ip']}.cfg", "w")
+        file_output.write(output)
+        file_output.close()
+        print("Backup 100%")
+        ssh_client.close()
+    except paramiko.ssh_exception.AuthenticationException as message:
+        print("-------------------------------------------")
+        print("-------------------------------------------")
+        print(f"{message} [{router['ip']}]")
+        file_log.write(f"[{datetime.now()}]-{message} [{router['ip']}]\n")
+        print(f"Skip Login to {router['ip']}")
+        print("-------------------------------------------")
+    except paramiko.ssh_exception.NoValidConnectionsError as message:
+        print("-------------------------------------------")
+        print("-------------------------------------------")
+        print(f"{message} [{router['ip']}]")
+        file_log.write(f"[{datetime.now()}]-{message} [{router['ip']}]\n")
+        print(f"Router {router['ip']} Not Running")
+        print("-------------------------------------------")
+    except Exception as message:
+        print("-------------------------------------------")
+        print("-------------------------------------------")
+        print(f"Other Eror // {message} [{router['ip']}] //")
+        file_log.write(f"[{datetime.now()}]-Other Eror // {message} [{router['ip']}] //\n")
+        print(f"Skip Login to {router['ip']}")
+        print("-------------------------------------------")
+file_log.close()

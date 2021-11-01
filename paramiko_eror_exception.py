@@ -39,3 +39,16 @@ for ip in list_ip:
         print(f"{message} [{ip}]")
         print(f"Skip Login to {ip}")
         print("-------------------------------------------")
+    except paramiko.ssh_exception.NoValidConnectionsError as message:
+        print("-------------------------------------------")
+        print("-------------------------------------------")
+        print(f"{message} [{ip}]")
+        print(f"Router {ip} Not Running")
+        print("-------------------------------------------")
+    except Exception as message:
+        print("-------------------------------------------")
+        print("-------------------------------------------")
+        print(f"Other Eror // {message} [{ip}] //")
+        print(f"Skip Login to {ip}")
+        print("-------------------------------------------")
+    

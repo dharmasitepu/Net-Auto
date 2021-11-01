@@ -4,3 +4,21 @@
 [2021-11-01 15:01:30.470741]-Authentication failed. [10.10.10.2]
 [2021-11-01 15:01:33.553049]-[Errno None] Unable to connect to port 22 on 10.10.10.3 [10.10.10.3]
 [2021-11-01 15:01:36.626157]-[Errno None] Unable to connect to port 22 on 10.10.10.4 [10.10.10.4]
+[2021-11-01 15:39:24.785883]-[Errno None] Unable to connect to port 22 on 10.10.10.3 [10.10.10.3]
+[2021-11-01 15:39:27.856663]-[Errno None] Unable to connect to port 22 on 10.10.10.4 [10.10.10.4]
+[2021-11-01 18:26:48.736400]-Other Eror // list indices must be integers or slices, not str [10.10.10.1] //
+[2021-11-01 18:26:51.736266]-Authentication failed. [10.10.10.2]
+[2021-11-01 18:27:02.144146]-[Errno None] Unable to connect to port 22 on 10.10.10.5 [10.10.10.5]
+[2021-11-01 18:34:41.828170]-Other Eror // list indices must be integers or slices, not str [10.10.10.1] //
+[2021-11-01 18:34:57.201703]-[Errno None] Unable to connect to port 22 on 10.10.10.5 [10.10.10.5]
+[2021-11-01 18:36:00.453205]-Other Eror // list indices must be integers or slices, not str [10.10.10.1] //
+[2021-11-01 18:36:01.682624]-Other Eror // list indices must be integers or slices, not str [10.10.10.2] //
+[2021-11-01 18:36:02.820149]-Other Eror // list indices must be integers or slices, not str [10.10.10.3] //
+[2021-11-01 18:36:03.849514]-Other Eror // list indices must be integers or slices, not str [10.10.10.4] //
+[2021-11-01 18:36:03.913707]-[Errno None] Unable to connect to port 22 on 10.10.10.5 [10.10.10.5]
+[2021-11-01 18:37:13.754076]-Other Eror // list indices must be integers or slices, not str [10.10.10.1] //
+[2021-11-01 18:37:28.909074]-[Errno None] Unable to connect to port 22 on 10.10.10.5 [10.10.10.5]
+[2021-11-01 18:41:09.593775]-Other Eror // list indices must be integers or slices, not str [10.10.10.1] //
+[2021-11-01 18:41:25.208102]-[Errno None] Unable to connect to port 22 on 10.10.10.5 [10.10.10.5]
+[2021-11-01 18:48:31.167890]-Other Eror // list indices must be integers or slices, not str [10.10.10.1] //
+[2021-11-01 19:36:49.933129]-Other Eror // Error reading SSH protocol banner'utf-8' codec can't decode byte 0xff in position 0: invalid start byte [10.10.10.3] //

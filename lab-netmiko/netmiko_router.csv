@@ -1,0 +1,6 @@
+device_type;host;username;password;port;secret
+cisco_ios;10.10.10.1;cisco;cisco;22;cisco
+cisco_ios;10.10.10.2;cisco2;cisco2;22;
+cisco_ios;10.10.10.3;cisco3;cisco3;22;
+cisco_ios;10.10.10.4;cisco4;cisco4;22;
+cisco_ios;10.10.10.5;cisco5;cisco5;2211;

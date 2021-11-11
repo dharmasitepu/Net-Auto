@@ -12,21 +12,12 @@ ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 list_router = open("data_router.csv", "r")
-# data_router_list = list_router.readlines()
-# data_router_list.remove(data_router_list[0])
 data_router_dict = csv.DictReader(list_router, delimiter=";")
 file_log = open("paramiko_log.txt", "a")
 
 
 for router in data_router_dict:
-    # router = router.split(";")
     try:
-        # ssh_client.connect(
-        #     hostname=router[0],
-        #     username=router[1], 
-        #     password=router[2],
-        #     port=router[3] if router[3] else 22
-        # )
         ssh_client.connect(
             hostname=router["ip"],
             username=router["username"], 
